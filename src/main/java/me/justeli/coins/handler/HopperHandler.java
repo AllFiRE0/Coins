@@ -30,10 +30,7 @@ public final class HopperHandler implements Listener {
         }
 
         ItemStack item = event.getItem().getItemStack();
-        if (!coins.getCoinMeta().isDroppedCoin(item)) {
-            return;
+        if (coins.getCoinMeta().isCoin(item)) {
+            event.setCancelled(true);
         }
-
-        event.setCancelled(true);
-    }
 }
